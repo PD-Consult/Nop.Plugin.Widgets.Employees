@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Plugins/Widgets.Employees/Views/Shared/_Admin.cshtml";
+}
+@model EmployeeModel
+@using Nop.Plugin.Widgets.Employees.Models;
+@using Nop.Web.Framework
+@{
+    //page title
+    ViewBag.Title = T("Admin.Employee.Edit").Text;
+}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "employee-form" }))
+{
+    <div class="section-header">
+        <div class="title">
+            <img src="@Url.Content("~/Administration/Content/images/ico-catalog.png")" alt="" />
+            @T("Admin.Employee.Edit") <a href="/Employees/List">(@T("Employee.BackToList"))</a>
+        </div>
+        <div class="options">
+            <input type="submit" name="save" class="t-button" value="@T("Admin.Common.Save")" />
+            <input type="submit" name="save-continue" class="t-button" value="@T("Admin.Common.SaveContinue")" />
+            <span id="category-delete" class="t-button">@T("Admin.Common.Delete")</span>
+        </div>
+    </div>
+    @Html.Partial("~/Plugins/Widgets.Employees/Views/Employees/_CreateOrUpdateEmployee.cshtml", Model)
+}
+
+@Html.DeleteConfirmation("category-delete")

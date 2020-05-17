@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Plugins/Widgets.Employees/Views/Shared/_Shared.cshtml";
+}
+@model DepartmentEmployeeModel
+@using Nop.Plugin.Widgets.Employees.Models;
+@helper NotEmpty(string value)
+{
+    if (string.IsNullOrEmpty(value))
+    {
+        <span>&nbsp;</span>
+    }
+    else
+    {
+        <span>@value</span>
+    }
+}
+<div class="Employees">
+		
+    <div class="section-header">
+        <div class="title">
+            @T("Employee.Employees")
+        </div>
+        <div class="options">
+            @if(Model.IsAdmin)
+            {
+                <a href="/Employees/CreateEmployee" class="EmployeeAddButton">@T("Admin.Employee.AddNew")</a>
+            }
+        </div>
+    </div>
+    <div class="clear"></div>
+    @foreach (var item in Model.EmployeesList)
+    {
+        <div class="EmployeeDepartments">
+            @item.DepartmentName
+        </div>
+             
+        <div class="Employees">
+            @foreach (var employee in item.Employees)
+            {       
+                <div class="Employee">
+                    <a href="/Employees/EmployeeInfo/@(employee.Id)">
+                        <div class="EmployeeZoom"></div>
+                        <div class="EmployeeName">@employee.Name</div>
+                    </a>
+                    <div class="EmployeeTitle">@NotEmpty(employee.Title)</div>
+                    <div class="EmployeePhone">@NotEmpty(employee.PhoneNumber)</div>
+                    <div class="EmployeeMobile">@NotEmpty(employee.MobileNumber)</div>
+                    <div class="EmployeeEMail">
+                        <a href="mailto:@(employee.Email)">@employee.Email</a>
+                    </div>
+                    <br>
+                </div>
+            }       
+        </div>
+    }
+</div>

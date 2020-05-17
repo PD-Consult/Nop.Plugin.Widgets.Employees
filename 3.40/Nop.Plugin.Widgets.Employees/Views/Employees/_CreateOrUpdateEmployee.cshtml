@@ -1,0 +1,136 @@
+﻿@model EmployeeModel
+@using Nop.Plugin.Widgets.Employees.Models;
+@using Nop.Web.Framework
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+
+<table class="adminContent">
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.Name)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.Title)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.Email)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.DepartmentId):
+        </td>
+        <td class="adminData">
+            @Html.DropDownListFor(model => model.DepartmentId, Model.AvailableDepartments)
+            <a href="/Employees/CreateDepartment">@T("Admin.Department.AddNew")</a>
+            @Html.ValidationMessageFor(model => model.DepartmentId)
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.PictureId)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.PictureId)
+            @Html.ValidationMessageFor(model => model.PictureId)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.Info):
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(x => x.Info, "RichEditor")
+            @Html.ValidationMessageFor(model => model.Info)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.Specialties):
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(x => x.Specialties, "RichEditor")
+            @Html.ValidationMessageFor(model => model.Specialties)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.Interests):
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(x => x.Interests, "RichEditor")
+            @Html.ValidationMessageFor(model => model.Interests)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.PhoneNumber)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.PhoneNumber)
+            @Html.ValidationMessageFor(model => model.PhoneNumber)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.MobileNumber)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.MobileNumber)
+            @Html.ValidationMessageFor(model => model.MobileNumber)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.WorkStarted)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.WorkStarted)
+            @Html.ValidationMessageFor(model => model.WorkStarted)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.WorkEnded)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.WorkEnded)
+            @Html.ValidationMessageFor(model => model.WorkEnded)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.Published):
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(x => x.Published)
+            @Html.ValidationMessageFor(model => model.Published)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.Deleted):
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.Deleted)
+            @Html.ValidationMessageFor(model => model.Deleted)
+        </td>
+    </tr>
+</table>
